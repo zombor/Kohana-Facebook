@@ -1,0 +1,3 @@
+[submodule "vendor/facebook"]
+	path = vendor/facebook
+	url = git://github.com/facebook/php-sdk
