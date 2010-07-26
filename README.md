@@ -1,10 +1,12 @@
-== Kohana Facebook Class
+Kohana Facebook Class
+===
 
 This class will help you easily integrate Facebook php sdk into your kohana application. It is written for use with Facebook's JS API for actual login/logout.
 
 This class only exists so that you can get Facebook user details for your users.
 
-=== Javascript Setup
+Javascript Setup
+---
 
 Here is some sample javascript to paste at the *bottom* of your html document you wish to use Facebook data on:
 
@@ -36,7 +38,11 @@ You will need to pass {{app_id}}, and a json_encode()'d session variable to conn
 
 The auth.login event will fire whenever someone logs into your site with a Facebook login button (<fb:login-button autologoutlink="true"></fb:login-button>) and will redirect to your Facebook specific login page.
 
-=== Class Usage
+Class Usage
+---
 
  1. Kohana_Facebook::instance()->logged_in() - Tells you if the user is authenticated with facebook
  2. Kohana_Facebook::instance()->account()   - Gives you the raw user object provided by facebook_
+
+This is a work in progress, so expect changes and feel free to contribute
+---
