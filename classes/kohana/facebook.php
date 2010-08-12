@@ -74,4 +74,9 @@ class Kohana_Facebook
 	{
 		return $this->_me;
 	}
+
+	public function facebook()
+	{
+		return $this->_facebook;
+	}
 }
