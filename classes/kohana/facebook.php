@@ -31,15 +31,6 @@ class Kohana_Facebook
 		);
 
 		$this->_session = $this->_facebook->getSession();
-
-		try
-		{
-			$this->_me = $this->_facebook->api('/me');
-		}
-		catch (FacebookApiException $e)
-		{
-			// Do nothing.
-		}
 	}
 
 	public static function instance()
@@ -57,7 +48,7 @@ class Kohana_Facebook
 
 	public function logged_in()
 	{
-		return $this->_me != NULL;
+		return $this->user_id() != NULL;
 	}
 
 	public function user_id()
@@ -72,6 +63,15 @@ class Kohana_Facebook
 
 	public function account()
 	{
+		try
+		{
+			$this->_me = $this->_facebook->api('/me');
+		}
+		catch (FacebookApiException $e)
+		{
+			// Do nothing.
+		}
+
 		return $this->_me;
 	}
 
