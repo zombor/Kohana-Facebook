@@ -13,7 +13,7 @@ class Kohana_Facebook
 
 	protected $_facebook;
 
-	protected $_session;
+	protected $_user;
 
 	protected $_me;
 
@@ -30,7 +30,7 @@ class Kohana_Facebook
 			)
 		);
 
-		$this->_session = $this->_facebook->getSession();
+		$this->_user = $this->_facebook->getUser();
 	}
 
 	public static function instance()
@@ -48,17 +48,12 @@ class Kohana_Facebook
 
 	public function logged_in()
 	{
-		return $this->user_id() != NULL;
+		return $this->user_id() != 0;
 	}
 
 	public function user_id()
 	{
-		return $this->_facebook->getUser();
-	}
-
-	public function session()
-	{
-		return $this->_session;
+		return $this->_user;
 	}
 
 	public function account()
