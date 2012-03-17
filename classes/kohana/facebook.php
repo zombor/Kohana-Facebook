@@ -13,8 +13,6 @@ class Kohana_Facebook
 
 	protected $_facebook;
 
-	protected $_session;
-
 	protected $_me;
 
 	protected function __construct()
@@ -22,15 +20,15 @@ class Kohana_Facebook
 		include Kohana::find_file('vendor', 'facebook/src/facebook');
 
 		// Do class setup
+		$config = Kohana::$config->load('facebook');
+
 		$this->_facebook = new Facebook(
 			array(
-				'appId'  => Kohana::config('facebook')->app_id,
-				'secret' => Kohana::config('facebook')->secret,
+				'appId'  => $config->app_id,
+				'secret' => $config->secret,
 				'cookie' => true, // enable optional cookie support
 			)
 		);
-
-		$this->_session = $this->_facebook->getSession();
 
 		try
 		{
@@ -63,11 +61,6 @@ class Kohana_Facebook
 	public function user_id()
 	{
 		return $this->_facebook->getUser();
-	}
-
-	public function session()
-	{
-		return $this->_session;
 	}
 
 	public function account()
