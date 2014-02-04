@@ -14,7 +14,6 @@ Here is some sample javascript to paste at the *bottom* of your html document yo
 		window.fbAsyncInit = function() {
 			FB.init({
 				appId   : '{{app_id}}',
-				session : {{encoded_session}}, // don't refetch the session when PHP already has it
 				status  : true, // check login status
 				cookie  : true, // enable cookies to allow the server to access the session
 				xfbml   : true // parse XFBML
@@ -34,7 +33,7 @@ Here is some sample javascript to paste at the *bottom* of your html document yo
 	  }());
 	</script>
 
-You will need to pass {{app_id}}, and a json_encode()'d session variable to connect to Facebook. I use Mustache in this example, but you can use whatever you'd like.
+You will need to pass {{app_id}} to connect to Facebook. I use Mustache in this example, but you can use whatever you'd like.
 
 The auth.login event will fire whenever someone logs into your site with a Facebook login button (<fb:login-button autologoutlink="true"></fb:login-button>) and will redirect to your Facebook specific login page.
 
